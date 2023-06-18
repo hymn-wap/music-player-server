@@ -11,16 +11,6 @@ dotenv.config();
 //cors
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }))
-    .use(function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', '*');
-        // res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
-        next();
-    });
-
 app.use(cors());
 
 
