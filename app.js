@@ -14,10 +14,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }))
     .use(function (req, res, next) {
-        //跨域处理
-        res.setHeader('Access-Control-Allow-Origin', '*');  //允许任何源
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', '*');   //允许任何类型
+        res.setHeader('Access-Control-Allow-Headers', '*');
         // res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
         next();  //next 方法就是一个递归调用
     });
@@ -31,7 +30,7 @@ app.use(cors());
 
 //Bruce
 
-// 假设我们在内存中存储用户信息
+// User infos:
 let users = {
     'user1': '123',
     'user2': '123'
@@ -41,9 +40,9 @@ app.post('/login', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
 
-    // 验证用户名和密码
+    //check the password
     if (users[username] === password) {
-        // 签署 token
+        // create token
         let token = jwt.sign({username: username}, 'your-encryption-secret', {expiresIn: '1h'});
         res.status(200).json({token: token});
     } else {
@@ -52,7 +51,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/secure-endpoint', verifyToken, (req, res) => {
-    // 这是一个需要验证的端点
+    // after login function
     res.send('You have access to this secure endpoint');
     console.log("11199911");
 });
