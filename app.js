@@ -18,7 +18,7 @@ app.use(bodyParser.json())
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
         res.setHeader('Access-Control-Allow-Headers', '*');
         // res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
-        next();  //next 方法就是一个递归调用
+        next();
     });
 
 app.use(cors());
