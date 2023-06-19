@@ -15,7 +15,3 @@ exports.login = (req, res, next) => {
         res.status(401).send('Error: Invalid username or password');
     }
 }
-
-exports.afterLogin = (req, res, next) => {
-    res.status(200).json(Book.findById(req.params.bookId));
-}

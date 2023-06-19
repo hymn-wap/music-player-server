@@ -1,8 +1,13 @@
 const PlayList = require("../models/playList");
 const Song = require('../models/song');
+const jwt = require("jsonwebtoken");
 
 exports.getPlayListByUserId =(req, res, next) => {
-    res.json(PlayList.getPlayListByUserId(req.params.id));
+    console.log("18181");
+    let token = req.headers['authorization'];
+    let decoded = jwt.verify(token, 'secret');
+    console.log('userId: '+decoded.userId+'  token:'+token);
+    res.json(PlayList.getPlayListByUserId(decoded.userId));
 }
 
 exports.deleteSongFromPlayList = (req, res, next) => {
@@ -11,6 +16,7 @@ exports.deleteSongFromPlayList = (req, res, next) => {
 }
 
 exports.addSongToPlayList = (req, res, next) => {
+    console.log("191919");
     const song = Song.getSongById(req.body.sId)
     // let playList = PlayList.getPlayListById(req.params.id)
     // // playList.addSongToList(song)
