@@ -1,13 +1,9 @@
 const express = require("express");
 const path = require("path");
-const dotenv = require("dotenv");
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
-
-dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -67,18 +63,4 @@ app.use((err, req, res, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// listen
-const port = process.env.PORT;
-app.listen(port, ()=>{
-    console.log(`Server listening on port: ${port}`);
-})
+app.listen(3000, () => console.log('listening to 3000...'));
