@@ -6,13 +6,15 @@ const playList = [
                 "id": 2,
                 "title": "My Heart Will Go On",
                 "releaseDate": "1998-12-20",
-                "artist": "Celine Dion"
+                "artist": "Celine Dion",
+                "url" : "MyHeartWillGoOn-CelineDion.mp3"
             },
             {
                 "id": 3,
                 "title": "Nothing'S Gonna Change My Love",
                 "releaseDate": "1998-12-15",
-                "artist": "Dana Winner"
+                "artist": "Dana Winner",
+                "url": "Nothing'SGonnaChangeMyLove-DanaWinner.mp3"
             }
         ],
         "userId": 1,
@@ -26,19 +28,22 @@ const playList = [
                 "id": 4,
                 "title": "Pretty Boy",
                 "releaseDate": "1994-3-15",
-                "artist": "M2M"
+                "artist": "M2M",
+                "url": "PrettyBoy-M2M.mp3"
             },
             {
                 "id": 5,
                 "title": "Scarborough Fair",
                 "releaseDate": "1994-03-12",
-                "artist": "Sarah Brightman"
+                "artist": "Sarah Brightman",
+                "url" : "ScarboroughFair-SarahBrightman.mp3"
             },
             {
                 "id": 6,
                 "title": "Sealed With A Kiss",
                 "releaseDate": "1991-3-15",
-                "artist": "Dana Winner"
+                "artist": "Dana Winner",
+                "url" : "SealedWithAKiss-DanaWinner.mp3"
             }
         ],
         "userId": 2,

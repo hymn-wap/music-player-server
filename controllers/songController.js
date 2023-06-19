@@ -1,4 +1,5 @@
 const Song = require('../models/song');
+const path = require('path');
 const PlayList = require("../models/playList");
 
 exports.save = (req, res, next) => {
@@ -10,7 +11,7 @@ exports.fetchAll = (req, res, next) => {
     res.json(Song.getAll());
 }
 
-exports.getSongById =(req, res, next) => {
+exports.getSongById = (req, res, next) => {
     res.json(Song.getSongById(req.params.id));
 }
 
@@ -27,5 +28,19 @@ exports.update = (req, res, next) => {
     PlayList.editSongInfo(req.body.id, req.body.title, req.body.releaseDate, req.body.artist)
     res.status(204).end();
 }
+
+exports.playSong = (req, res) => {
+    const { id } = req.params;
+    try {
+        const song = Song.getSongById(Number(id));
+        // Logic to play the song using the filePath
+        res.json({
+            message: `Now playing '${song.title}' by '${song.artist}'`,
+            url: `http://${req.get('host')}/${song.url}`
+        });
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
 
 //return module.exports
