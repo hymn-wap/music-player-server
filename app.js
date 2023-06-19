@@ -33,7 +33,7 @@ app.post('/login', (req, res) => {
     //check the password
     if (users[username] === password) {
         // create token
-        let token = jwt.sign({username: username}, 'your-encryption-secret', {expiresIn: '1h'});
+        let token = jwt.sign({username: username}, 'secret', {expiresIn: '1h'});
         res.status(200).json({token: token});
     } else {
         res.status(401).send('Error: Invalid username or password');
@@ -48,17 +48,12 @@ app.get('/secure-endpoint', verifyToken, (req, res) => {
 
 
 
-
-
-
-
-
-// token 验证函数
+// token
 function verifyToken(req, res, next) {
     let token = req.headers['authorization'];
 
     if (token) {
-        jwt.verify(token, 'your-encryption-secret', (err, data) => {
+        jwt.verify(token, 'secret', (err, data) => {
             if (err) {
                 res.sendStatus(403);
             } else {
@@ -69,6 +64,15 @@ function verifyToken(req, res, next) {
     } else {
         res.sendStatus(401);
     }
+
+    try {//trans token to username
+        let decoded = jwt.verify(token, 'secret');
+        console.log(decoded.username);
+    } catch(err) {
+        console.log(err);
+    }
+
+
 }
 
 
