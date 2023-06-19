@@ -4,21 +4,23 @@ const dotenv = require("dotenv");
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const songRouter = require('./routes/songRouter');
+const playListRouter = require('./routes/playListRouter');
 
 
 dotenv.config();
-//cors
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 
-// middleware
+app.use(express.static('public'));
+app.use(express.json()); //post, put req.body = {}
+app.use('/songs',songRouter);
+app.use('/playList',playListRouter);
 
 
 
-//Bruce
 
 // User infos:
 let users = {
@@ -77,7 +79,13 @@ function verifyToken(req, res, next) {
 
 
 
+app.use((req, res, next) => {
+    res.status(404).send('API not supported!');
+});
 
+app.use((err, req, res, next) => {
+    res.status(500).send(err.message);
+});
 
 
 
