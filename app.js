@@ -4,8 +4,7 @@ const dotenv = require("dotenv");
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const songRouter = require('./routes/songRouter');
-const playListRouter = require('./routes/playListRouter');
+
 
 
 dotenv.config();
@@ -13,34 +12,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const songRouter = require('./routes/songRouter');
+const playListRouter = require('./routes/playListRouter');
+const loginRouter = require('./routes/loginRouter');
 
 app.use(express.static('public'));
 app.use(express.json()); //post, put req.body = {}
+app.use('/login',loginRouter);
 app.use('/songs',songRouter);
 app.use('/playList',playListRouter);
 
 
-
-
-// User infos:
-let users = {
-    'user1': ['123',1],
-    'user2': ['123',2]
-};
-
-app.post('/login', (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-
-    //check the password
-    if (users[username][0] === password) {
-        // create token
-        let token = jwt.sign({userId: users[username][1]}, 'secret', {expiresIn: '1h'});
-        res.status(200).json({token: token});
-    } else {
-        res.status(401).send('Error: Invalid username or password');
-    }
-});
 
 app.get('/secure-endpoint', verifyToken, (req, res) => {
     // after login function
@@ -48,12 +30,9 @@ app.get('/secure-endpoint', verifyToken, (req, res) => {
     console.log("11199911");
 });
 
-
-
 // token
 function verifyToken(req, res, next) {
     let token = req.headers['authorization'];
-
     if (token) {
         jwt.verify(token, 'secret', (err, data) => {
             if (err) {
@@ -66,7 +45,6 @@ function verifyToken(req, res, next) {
     } else {
         res.sendStatus(401);
     }
-
     try {//trans token to userId
         let decoded = jwt.verify(token, 'secret');
         console.log('userId: '+decoded.userId+'  token:'+token);
