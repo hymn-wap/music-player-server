@@ -3,75 +3,87 @@ const songs = [
         "id": 1,
         "title": "Loving You",
         "releaseDate": "2012-12-13",
-        "artist": "Shanice Wilson"
+        "artist": "Shanice Wilson",
+        "url": "LovingYou-ShaniceWilson.mp3"
+
     },
     {
         "id": 2,
         "title": "My Heart Will Go On",
         "releaseDate": "1998-12-20",
-        "artist": "Celine Dion"
+        "artist": "Celine Dion",
+        "url": "MyHeartWillGoOn-CelineDion.mp3"
     },
     {
         "id": 3,
         "title": "Nothing'S Gonna Change My Love",
         "releaseDate": "1998-12-15",
-        "artist": "Dana Winner"
+        "artist": "Dana Winner",
+        "url": "Nothing'SGonnaChangeMyLove-DanaWinner.mp3"
     },
     {
         "id": 4,
         "title": "Pretty Boy",
         "releaseDate": "1994-3-15",
-        "artist": "M2M"
+        "artist": "M2M",
+        "url": "PrettyBoy-M2M.mp3"
     },
     {
         "id": 5,
         "title": "Scarborough Fair",
         "releaseDate": "1994-03-12",
-        "artist": "Sarah Brightman"
+        "artist": "Sarah Brightman",
+        "url": "ScarboroughFair-SarahBrightman.mp3"
     },
     {
         "id": 6,
         "title": "Sealed With A Kiss",
         "releaseDate": "1991-3-15",
-        "artist": "Dana Winner"
+        "artist": "Dana Winner",
+        "url": "SealedWithAKiss-DanaWinner.mp3"
     },
 
     {
         "id": 7,
         "title": "Set Fire to the Rain",
         "releaseDate": "2017-2-15",
-        "artist": "Adele"
+        "artist": "Adele",
+        "url": "SetFireToTheRain-Adele.mp3"
     },
     {
         "id": 8,
         "title": "Someone Like You",
         "releaseDate": "2014-9-18",
-        "artist": "Adele"
+        "artist": "Adele",
+        "url": "SomeoneLikeYou-Adele.mp3"
     },
     {
         "id": 9,
         "title": "Sound Of Silence",
         "releaseDate": "2014-9-18",
-        "artist": "Ania"
+        "artist": "Ania",
+        "url": "SoundOfSilence-Ania.mp3"
     },
     {
         "id": 10,
         "title": "Stay",
         "releaseDate": "1996-1-23",
-        "artist": "Tonya Mitchell"
+        "artist": "Tonya Mitchell",
+        "url": "Stay-TonyaMitchell.mp3"
     },
     {
         "id": 11,
         "title": "Still Crazy in Love",
         "releaseDate": "2020-1-23",
-        "artist": "Sarah Connor"
+        "artist": "Sarah Connor",
+        "url": "StillCrazyInLove-SarahConnor.mp3"
     },
     {
         "id": 12,
         "title": "Still Loving You",
         "releaseDate": "2020-1-23",
         "artist": "Scorpions",
-        "url": "Still%20Loving%20You-Scorpions.mp3"
+        "url": "StillLovingYou-Scorpions.mp3"
     },
 ];
 let idcounter = 13;
