@@ -7,7 +7,10 @@ exports.login = (req, res, next) => {
     let token = Login.login(username, password);
 
     if (token) {
-        res.status(200).json({token: token});
+        res.status(200).json({
+            "token": token,
+            "userId": Login.getUserId(username)
+        });
     } else {
         res.status(401).send('Error: Invalid username or password');
     }
