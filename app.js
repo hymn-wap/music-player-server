@@ -24,8 +24,8 @@ app.use('/playList',playListRouter);
 
 // User infos:
 let users = {
-    'user1': '123',
-    'user2': '123'
+    'user1': ['123',1],
+    'user2': ['123',2]
 };
 
 app.post('/login', (req, res) => {
@@ -33,9 +33,9 @@ app.post('/login', (req, res) => {
     let password = req.body.password;
 
     //check the password
-    if (users[username] === password) {
+    if (users[username][0] === password) {
         // create token
-        let token = jwt.sign({username: username}, 'secret', {expiresIn: '1h'});
+        let token = jwt.sign({userId: users[username][1]}, 'secret', {expiresIn: '1h'});
         res.status(200).json({token: token});
     } else {
         res.status(401).send('Error: Invalid username or password');
@@ -67,9 +67,9 @@ function verifyToken(req, res, next) {
         res.sendStatus(401);
     }
 
-    try {//trans token to username
+    try {//trans token to userId
         let decoded = jwt.verify(token, 'secret');
-        console.log(decoded.username);
+        console.log('userId: '+decoded.userId+'  token:'+token);
     } catch(err) {
         console.log(err);
     }
