@@ -16,10 +16,10 @@ const songs = [
     },
     {
         "id": 3,
-        "title": "Nothing'S Gonna Change My Love",
+        "title": "NothingS Gonna Change My Love",
         "releaseDate": "1998-12-15",
         "artist": "Dana Winner",
-        "url": "Nothing'SGonnaChangeMyLove-DanaWinner.mp3"
+        "url": "NothingSGonnaChangeMyLove-DanaWinner.mp3"
     },
     {
         "id": 4,
