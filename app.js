@@ -18,6 +18,10 @@ app.use('/login',loginRouter);
 app.use('/songs',songRouter);
 app.use('/playList',playListRouter);
 
+app.use('/music/:songname', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'public', req.params.songname));
+});
+
 
 
 app.get('/secure-endpoint', verifyToken, (req, res) => {

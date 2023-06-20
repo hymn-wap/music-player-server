@@ -148,3 +148,5 @@ module.exports = class Song {
         }
     }
 }
+
+module.exports.musicDB = {songs}
